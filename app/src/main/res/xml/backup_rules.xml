@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<full-backup-content>
-    <!-- Rask is local-first; user-driven encrypted backup via in-app feature. -->
-    <exclude domain="root" path="." />
-</full-backup-content>

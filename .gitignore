@@ -1,17 +1,28 @@
-*.iml
-.gradle/
-local.properties
-.idea/
-.DS_Store
-build/
-captures/
-.externalNativeBuild/
-.cxx/
+# Build artifacts
+.buildozer/
+.venv/
+bin/
 *.apk
 *.aab
-*.keystore
-*.jks
-keystore.properties
-release/
-*.log
-google-services.json
+*.apks
+
+# Python caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Local config
+.env
+local.properties
