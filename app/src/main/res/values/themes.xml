@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Base Rask theme — gold-on-dark.
+    Material 3 via Material Components for View.
+    Always-dark palette by design (luxurious matte black), so we
+    define the dark baseline as the default and let values-night
+    reinforce the same values.
+-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- ===== Base application theme ===== -->
+    <style name="Theme.Rask" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Color palette -->
+        <item name="colorPrimary">@color/rask_gold</item>
+        <item name="colorPrimaryVariant">@color/rask_gold_warm</item>
+        <item name="colorOnPrimary">@color/rask_black</item>
+        <item name="colorSecondary">@color/rask_gold_soft</item>
+        <item name="colorOnSecondary">@color/rask_black</item>
+
+        <item name="android:colorBackground">@color/rask_black</item>
+        <item name="colorOnBackground">@color/rask_cream</item>
+        <item name="colorSurface">@color/rask_card</item>
+        <item name="colorOnSurface">@color/rask_cream</item>
+        <item name="colorSurfaceVariant">@color/rask_elevated</item>
+        <item name="colorOnSurfaceVariant">@color/rask_gray_light</item>
+
+        <item name="colorError">@color/rask_error</item>
+        <item name="colorOnError">@color/rask_cream</item>
+
+        <item name="colorOutline">@color/rask_card_border</item>
+        <item name="colorOutlineVariant">@color/rask_gray_dim</item>
+
+        <!-- Window -->
+        <item name="android:windowBackground">@color/rask_black</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/rask_black</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+
+        <!-- Component styles -->
+        <item name="materialCardViewStyle">@style/Widget.Rask.CardView</item>
+        <item name="bottomNavigationStyle">@style/Widget.Rask.BottomNavigationView</item>
+        <item name="textInputStyle">@style/Widget.Rask.TextInputLayout</item>
+        <item name="buttonStyle">@style/Widget.Rask.Button</item>
+        <item name="floatingActionButtonStyle">@style/Widget.Rask.FAB</item>
+        <item name="snackbarStyle">@style/Widget.Rask.Snackbar</item>
+        <item name="snackbarTextViewStyle">@style/Widget.Rask.SnackbarText</item>
+
+        <!-- Misc -->
+        <item name="android:windowAnimationStyle">@style/Animation.Rask.Activity</item>
+        <item name="android:textDirection">locale</item>
+    </style>
+
+    <!-- ===== Splash theme (Android 12+ SplashScreen API + manual fade on older) ===== -->
+    <style name="Theme.Rask.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/rask_black</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_logo</item>
+        <item name="windowSplashScreenAnimationDuration">600</item>
+        <item name="postSplashScreenTheme">@style/Theme.Rask</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/rask_black</item>
+        <item name="android:windowBackground">@drawable/splash_bg</item>
+    </style>
+
+    <!-- Translucent theme for quick-log overlay -->
+    <style name="Theme.Rask.Translucent" parent="Theme.Material3.Dark.Dialog">
+        <item name="android:windowBackground">@color/rask_scrim</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="colorPrimary">@color/rask_gold</item>
+        <item name="colorOnPrimary">@color/rask_black</item>
+        <item name="colorSurface">@color/rask_card</item>
+        <item name="colorOnSurface">@color/rask_cream</item>
+    </style>
+</resources>

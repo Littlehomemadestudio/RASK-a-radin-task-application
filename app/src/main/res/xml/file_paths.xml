@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- For encrypted backup export / CSV export -->
+    <files-path
+        name="exports"
+        path="exports/" />
+    <cache-path
+        name="cache"
+        path="." />
+    <external-files-path
+        name="external_exports"
+        path="exports/" />
+</paths>

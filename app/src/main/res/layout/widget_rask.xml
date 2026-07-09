@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Home-screen widget — compact gold-on-dark card showing today's total
+    + a thin gold progress ring + a tap-to-quick-log shortcut.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/widget_bg"
+    android:padding="14dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/widget_today_total"
+                android:textColor="#B8B8BD"
+                android:textSize="10sp"
+                android:letterSpacing="0.08"
+                android:fontFamily="sans-serif-light" />
+
+            <TextView
+                android:id="@+id/widgetTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="#D4AF37"
+                android:fontFamily="sans-serif-light"
+                android:textSize="22sp"
+                android:letterSpacing="-0.02"
+                android:text="@string/widget_no_data" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/widgetQuickLog"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_add"
+            android:contentDescription="@string/widget_quick_log"
+            android:background="@drawable/widget_fab_bg"
+            android:padding="6dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/widgetSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="#7A7A82"
+        android:textSize="11sp"
+        android:fontFamily="sans-serif-light"
+        android:maxLines="1"
+        android:ellipsize="end" />
+</LinearLayout>

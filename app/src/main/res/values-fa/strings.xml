@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Persian (Farsi) strings — RTL.
+    Rask supports full Persian layout: layoutDirection=locale handles mirroring,
+    numbers use Persian digits via NumberFormat where appropriate.
+-->
+<resources>
+    <!-- ===== App identity ===== -->
+    <string name="app_name">رَسک</string>
+    <string name="app_tagline">رهگیر زمان و فعالیتِ مینیمال و لوکس</string>
+
+    <!-- ===== Navigation ===== -->
+    <string name="nav_home">خانه</string>
+    <string name="nav_stats">آمار</string>
+    <string name="nav_goals">اهداف</string>
+    <string name="nav_settings">تنظیمات</string>
+
+    <!-- ===== Splash ===== -->
+    <string name="splash_loading">آماده‌سازی فضای شما…</string>
+
+    <!-- ===== Onboarding ===== -->
+    <string name="onboarding_next">ادامه</string>
+    <string name="onboarding_skip">رد شدن</string>
+    <string name="onboarding_start">شروع</string>
+    <string name="onboarding_1_title">زمان را زیبا ثبت کن</string>
+    <string name="onboarding_1_body">فعالیت‌ها را با کرنومتر یا مدت دستی ثبت کن. رَسک هر دقیقه را — به‌صورت خصوصی روی دستگاهت — نگه می‌دارد.</string>
+    <string name="onboarding_2_title">اهدافی که با تو نفس می‌کشند</string>
+    <string name="onboarding_2_body">هدف روزانه، هفتگی یا ماهانه برای هر دسته تعیین کن. حلقه‌های پیشرفت را پر کن، زنجیره‌ها را طولانی کن و یادآوری‌های ملایم تو را در مسیر نگه دارد.</string>
+    <string name="onboarding_3_title">بینش، نه سر و صدا</string>
+    <string name="onboarding_3_body">نقشه‌حرارتی، نمودارهای روند و مرور سال — همه طلایی روی پس‌زمینه تیره. هر زمان خواستی به PDF یا CSV خروجی بگیر. داده‌ها هرگز از دستگاهت بیرون نمی‌روند.</string>
+
+    <!-- ===== Quick log ===== -->
+    <string name="quick_log">ثبت سریع</string>
+    <string name="quick_log_title_hint">چه کاری انجام دادی؟</string>
+    <string name="quick_log_duration">مدت</string>
+    <string name="quick_log_hours_hint">ساعت</string>
+    <string name="quick_log_minutes_hint">دقیقه</string>
+    <string name="quick_log_category">دسته</string>
+    <string name="quick_log_notes">یادداشت</string>
+    <string name="quick_log_save">ذخیره</string>
+    <string name="quick_log_cancel">لغو</string>
+    <string name="quick_log_start_timer">شروع تایمر</string>
+    <string name="quick_log_templates">قالب‌ها</string>
+    <string name="quick_log_voice_hint">برای گفتن عنوان، میکروفن را لمس کن</string>
+    <string name="quick_log_voice_unavailable">ورودی صوتی در دسترس نیست</string>
+    <string name="quick_log_invalid">لطفاً عنوان و مدت غیر صفر وارد کن</string>
+
+    <!-- ===== Home ===== -->
+    <string name="home_today">امروز</string>
+    <string name="home_today_total">مجموع امروز</string>
+    <string name="home_week">این هفته</string>
+    <string name="home_goal_progress">پیشرفت هدف</string>
+    <string name="home_recent">فعالیت‌های اخیر</string>
+    <string name="home_no_activities">هنوز فعالیتی ثبت نشده.\nبرای ثبت اولین مورد، + را بزن.</string>
+    <string name="home_timer_running">تایمر در حال اجرا</string>
+    <string name="home_timer_paused">تایمر متوقف شد</string>
+    <string name="home_streak">زنجیرهٔ %1$d روزه</string>
+
+    <!-- ===== Timer ===== -->
+    <string name="timer_start">شروع</string>
+    <string name="timer_pause">مکث</string>
+    <string name="timer_resume">ادامه</string>
+    <string name="timer_stop">توقف و ذخیره</string>
+    <string name="timer_cancel">لغو</string>
+    <string name="timer_notification_channel">تایمر فعال</string>
+    <string name="timer_notification_text">رَسک در حال ثبت زمان توست</string>
+    <string name="timer_tap_to_open">برای باز کردن، لمس کن</string>
+
+    <!-- ===== Stats ===== -->
+    <string name="stats_range">بازه</string>
+    <string name="stats_today">امروز</string>
+    <string name="stats_yesterday">دیروز</string>
+    <string name="stats_this_week">این هفته</string>
+    <string name="stats_this_month">این ماه</string>
+    <string name="stats_last_30">۳۰ روز گذشته</string>
+    <string name="stats_this_year">امسال</string>
+    <string name="stats_all_time">همهٔ زمان‌ها</string>
+    <string name="stats_custom">سفارشی…</string>
+    <string name="stats_total">مجموع زمان</string>
+    <string name="stats_by_category">بر اساس دسته</string>
+    <string name="stats_by_tag">بر اساس برچسب</string>
+    <string name="stats_heatmap">نقشهٔ حرارتی فعالیت</string>
+    <string name="stats_trends">روندها</string>
+    <string name="stats_weekly_avg">میانگین هفتگی</string>
+    <string name="stats_monthly_growth">رشد ماهانه</string>
+    <string name="stats_best_day">پرکارترین روز</string>
+    <string name="stats_peak_hour">ساعت اوج</string>
+    <string name="stats_compare">مقایسهٔ بازه‌ها</string>
+    <string name="stats_export_pdf">خروجی PDF</string>
+    <string name="stats_export_csv">خروجی CSV</string>
+    <string name="stats_year_in_review">مرور سال</string>
+    <string name="stats_no_data">برای این بازه داده‌ای نیست</string>
+    <string name="stats_export_success">ذخیره شد در %1$s</string>
+    <string name="stats_export_failed">خروجی ناموفق بود</string>
+
+    <!-- ===== Goals ===== -->
+    <string name="goals_title">اهداف و زنجیره‌ها</string>
+    <string name="goals_add">هدف جدید</string>
+    <string name="goals_scope">دامنه</string>
+    <string name="goals_scope_daily">روزانه</string>
+    <string name="goals_scope_weekly">هفتگی</string>
+    <string name="goals_scope_monthly">ماهانه</string>
+    <string name="goals_overall">کلی</string>
+    <string name="goals_per_category">برای هر دسته</string>
+    <string name="goals_target">هدف</string>
+    <string name="goals_hours">ساعت</string>
+    <string name="goals_minutes">دقیقه</string>
+    <string name="goals_streak">زنجیره</string>
+    <string name="goals_milestones">نقاط عطف</string>
+    <string name="goals_no_goals">هنوز هدفی نیست.\nبرای تعیین اولین هدف، + را بزن.</string>
+    <string name="goals_reached">رسیدی!</string>
+    <string name="goals_remaining">%1$s تا هدف</string>
+    <string name="goals_milestone_3">زنجیرهٔ ۳ روزه</string>
+    <string name="goals_milestone_7">زنجیرهٔ ۷ روزه</string>
+    <string name="goals_milestone_30">زنجیرهٔ ۳۰ روزه</string>
+    <string name="goals_milestone_100">زنجیرهٔ ۱۰۰ روزه</string>
+    <string name="goals_reminder_text">برای «%2$s» %1$s عقب هستی. می‌خواهی چیزی ثبت کنی؟</string>
+
+    <!-- ===== Settings ===== -->
+    <string name="settings_title">تنظیمات</string>
+    <string name="settings_appearance">ظاهر</string>
+    <string name="settings_theme">پوسته</string>
+    <string name="settings_theme_dark">تیره (پیش‌فرض)</string>
+    <string name="settings_theme_amoled">مشکی AMOLED</string>
+    <string name="settings_language">زبان</string>
+    <string name="settings_language_system">پیروی از سیستم</string>
+    <string name="settings_language_en">English</string>
+    <string name="settings_language_fa">فارسی</string>
+    <string name="settings_privacy">حریم خصوصی</string>
+    <string name="settings_app_lock">قفل اپ</string>
+    <string name="settings_app_lock_summary_off">برای باز کردن رَسک، اثر انگشت یا پین لازم است</string>
+    <string name="settings_app_lock_summary_on">قفل فعال. برای تغییر پین، لمس کن.</string>
+    <string name="settings_biometrics">استفاده از بیومتریک</string>
+    <string name="settings_pin">کد پین</string>
+    <string name="settings_data">داده‌ها</string>
+    <string name="settings_backup">پشتیبان رمزنگاری‌شده</string>
+    <string name="settings_backup_summary">خروجی فایل رمزنگاری‌شدهٔ .rask</string>
+    <string name="settings_restore">بازیابی از پشتیبان</string>
+    <string name="settings_restore_summary">وارد کردن فایل رمزنگاری‌شدهٔ .rask</string>
+    <string name="settings_export_csv">خروجی CSV (ساده)</string>
+    <string name="settings_clear">پاک‌سازی همهٔ داده‌ها</string>
+    <string name="settings_clear_summary">حذف دائمی همهٔ فعالیت‌ها، اهداف و قالب‌ها</string>
+    <string name="settings_reminders">یادآوری‌های ملایم</string>
+    <string name="settings_reminders_summary">وقتی از هدف روزانه عقب می‌مانی، اطلاع بده</string>
+    <string name="settings_reminder_time">ساعت یادآوری</string>
+    <string name="settings_about">درباره</string>
+    <string name="settings_version">نسخه</string>
+    <string name="settings_open_source">مجوزهای متن‌باز</string>
+    <string name="settings_rate">به رَسک امتیاز بده</string>
+
+    <!-- ===== App lock ===== -->
+    <string name="lock_title">باز کردن قفل رَسک</string>
+    <string name="lock_pin_hint">پین را وارد کن</string>
+    <string name="lock_biometrics_prompt">تأیید هویت</string>
+    <string name="lock_biometrics_subtitle">برای باز کردن قفل، اثر انگشت یا چهرت را استفاده کن</string>
+    <string name="lock_use_biometrics">با بیومتریک</string>
+    <string name="lock_use_pin">با پین</string>
+    <string name="lock_wrong_pin">پین اشتباه است</string>
+    <string name="lock_setup_pin">یک پین ۴ رقمی تعیین کن</string>
+    <string name="lock_confirm_pin">تأیید پین</string>
+    <string name="lock_pin_mismatch">پین‌ها مطابقت ندارند</string>
+
+    <!-- ===== Backup ===== -->
+    <string name="backup_password_title">رمز پشتیبان</string>
+    <string name="backup_password_hint">رمزی برای رمزنگاری پشتیبان انتخاب کن</string>
+    <string name="backup_restore_password_hint">رمز پشتیبان را وارد کن</string>
+    <string name="backup_done">پشتیبان ذخیره شد</string>
+    <string name="backup_failed">پشتیبان ناموفق بود</string>
+    <string name="backup_restore_done">بازیابی کامل شد</string>
+    <string name="backup_restore_failed">بازیابی ناموفق بود — رمز اشتباه یا فایل خراب است</string>
+
+    <!-- ===== Common ===== -->
+    <string name="ok">باشه</string>
+    <string name="cancel">لغو</string>
+    <string name="save">ذخیره</string>
+    <string name="delete">حذف</string>
+    <string name="edit">ویرایش</string>
+    <string name="confirm">تأیید</string>
+    <string name="yes">بله</string>
+    <string name="no">خیر</string>
+    <string name="close">بستن</string>
+    <string name="loading">در حال بارگذاری…</string>
+    <string name="error_generic">مشکلی پیش آمد</string>
+    <string name="empty">خالی</string>
+    <string name="copied">کپی شد</string>
+
+    <!-- ===== Templates ===== -->
+    <string name="template_save_as">ذخیره به‌عنوان قالب</string>
+    <string name="template_delete">حذف قالب</string>
+    <string name="template_use">استفاده از قالب</string>
+    <string name="template_name">نام قالب</string>
+
+    <!-- ===== Categories ===== -->
+    <string name="category_work">کار</string>
+    <string name="category_study">مطالعه</string>
+    <string name="category_exercise">ورزش</string>
+    <string name="category_reading">کتاب‌خوانی</string>
+    <string name="category_meditation">مدیتیشن</string>
+    <string name="category_hobby">سرگرمی</string>
+    <string name="category_other">سایر</string>
+    <string name="category_none">بدون دسته</string>
+    <string name="category_add">افزودن دسته</string>
+    <string name="category_name">نام دسته</string>
+    <string name="category_color">رنگ دسته</string>
+
+    <!-- ===== Widget ===== -->
+    <string name="widget_today_total">مجموع امروز</string>
+    <string name="widget_weekly_ring">حلقهٔ هفتگی</string>
+    <string name="widget_quick_log">ثبت سریع</string>
+    <string name="widget_no_data">هنوز داده‌ای نیست</string>
+
+    <!-- ===== Time formatting (spoken) ===== -->
+    <string name="time_hours_short">%d ساعت</string>
+    <string name="time_minutes_short">%d دقیقه</string>
+    <string name="time_hh_mm">%1$s ساعت %2$s دقیقه</string>
+    <string name="time_hh_mm_ss">%1$s:%2$s:%3$s</string>
+
+    <!-- ===== Notifications (channel names visible to user) ===== -->
+    <string name="channel_timer">تایمر فعال</string>
+    <string name="channel_reminders">یادآوری‌های ملایم</string>
+
+    <!-- ===== Misc content descriptions ===== -->
+    <string name="cd_back">بازگشت</string>
+    <string name="cd_more">گزینه‌های بیشتر</string>
+    <string name="cd_voice_input">ورودی صوتی</string>
+    <string name="cd_start_timer">شروع تایمر</string>
+    <string name="cd_quick_log">ثبت سریع</string>
+
+    <!-- About -->
+    <string name="about_description">رَسک یک رهگیر زمان و فعالیتِ آفلاین-اول است با دقت طراحی شده. بدون حساب کاربری، بدون تلمتری، بدون مصالحه روی طراحی.</string>
+</resources>

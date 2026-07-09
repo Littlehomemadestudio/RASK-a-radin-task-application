@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Stats screen.
+    - Range preset dropdown at top
+    - Total + heatmap (year)
+    - Bar chart (by category) + Donut chart (by tag) — implemented with MPAndroidChart
+    - Trends: weekly avg, monthly growth, best day, peak hour
+    - Export buttons (PDF, CSV)
+-->
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-android/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/rask_black">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:elevation="0dp">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/nav_stats"
+            app:titleTextAppearance="@style/TextAppearance.Rask.Headline"
+            app:titleTextColor="@color/rask_gold"
+            android:background="@android:color/transparent" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:clipToPadding="false"
+        android:paddingBottom="120dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp">
+
+            <!-- Range preset -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Rask.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/stats_range">
+
+                <AutoCompleteTextView
+                    android:id="@+id/rangeInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:popupBackground="@color/rask_card"
+                    android:textColor="@color/rask_cream" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Total -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Rask.CardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/stats_total"
+                        android:textAppearance="@style/TextAppearance.Rask.GoldLabel" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/totalLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="sans-serif-light"
+                        android:textColor="@color/rask_cream"
+                        android:textSize="38sp"
+                        tools:text="48h 30m"
+                        xmlns:tools="http://schemas.android.com/tools" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- By category chart -->
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="6dp"
+                android:text="@string/stats_by_category"
+                android:textAppearance="@style/TextAppearance.Rask.GoldLabel" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Rask.CardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp">
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/barChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- By tag donut -->
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="6dp"
+                android:text="@string/stats_by_tag"
+                android:textAppearance="@style/TextAppearance.Rask.GoldLabel" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Rask.CardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp">
+
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/donutChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Heatmap -->
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="6dp"
+                android:text="@string/stats_heatmap"
+                android:textAppearance="@style/TextAppearance.Rask.GoldLabel" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Rask.CardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp">
+
+                <com.rask.app.ui.stats.HeatmapView
+                    android:id="@+id/heatmap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Trends -->
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="6dp"
+                android:text="@string/stats_trends"
+                android:textAppearance="@style/TextAppearance.Rask.GoldLabel" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Rask.CardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="10dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/stats_weekly_avg"
+                                android:textAppearance="@style/TextAppearance.Rask.Caption" />
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/weeklyAvg"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:fontFamily="sans-serif-light"
+                                android:textColor="@color/rask_gold"
+                                android:textSize="18sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/stats_best_day"
+                                android:textAppearance="@style/TextAppearance.Rask.Caption" />
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/bestDay"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:fontFamily="sans-serif-light"
+                                android:textColor="@color/rask_gold"
+                                android:textSize="18sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/stats_peak_hour"
+                                android:textAppearance="@style/TextAppearance.Rask.Caption" />
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/peakHour"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:fontFamily="sans-serif-light"
+                                android:textColor="@color/rask_gold"
+                                android:textSize="18sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/stats_monthly_growth"
+                                android:textAppearance="@style/TextAppearance.Rask.Caption" />
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/monthlyGrowth"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:fontFamily="sans-serif-light"
+                                android:textColor="@color/rask_gold"
+                                android:textSize="18sp"
+                                tools:text="+12%"
+                                xmlns:tools="http://schemas.android.com/tools" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Export buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnExportPdf"
+                    style="@style/Widget.Rask.Button.Outlined"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/stats_export_pdf"
+                    app:icon="@drawable/ic_backup"
+                    app:iconTint="@color/rask_gold" />
+
+                <Space
+                    android:layout_width="12dp"
+                    android:layout_height="wrap_content" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnExportCsv"
+                    style="@style/Widget.Rask.Button.Outlined"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/stats_export_csv"
+                    app:icon="@drawable/ic_history"
+                    app:iconTint="@color/rask_gold" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

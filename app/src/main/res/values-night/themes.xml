@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Rask night theme — reinforces the dark baseline.
+    Even when the system is in light mode, Rask stays dark.
+-->
+<resources>
+    <!-- No-op: parent theme is already Dark.NoActionBar -->
+</resources>

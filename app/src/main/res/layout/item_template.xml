@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Single template chip used in the horizontal templates strip in QuickLog -->
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Widget.Rask.CardView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardCornerRadius="14dp"
+    app:contentPadding="12dp"
+    app:strokeColor="@color/rask_gold_dimmed"
+    app:strokeWidth="1dp">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/rask_cream"
+        android:fontFamily="sans-serif-light"
+        android:textSize="13sp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:maxWidth="120dp" />
+
+</com.google.android.material.card.MaterialCardView>

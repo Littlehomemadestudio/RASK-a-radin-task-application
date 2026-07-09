@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Rask font family.
+    Uses system sans-serif family at multiple weights — guaranteed available
+    on every Android 7+ device, supports Latin AND Persian (Farsi) glyphs.
+    No custom font binaries required → smaller APK, broader compatibility.
+-->
+<font-family xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <font
+        android:fontFamily="sans-serif-thin"
+        android:fontStyle="normal"
+        android:fontWeight="100" />
+
+    <font
+        android:fontFamily="sans-serif-light"
+        android:fontStyle="normal"
+        android:fontWeight="300" />
+
+    <font
+        android:fontFamily="sans-serif"
+        android:fontStyle="normal"
+        android:fontWeight="400" />
+
+    <font
+        android:fontFamily="sans-serif-medium"
+        android:fontStyle="normal"
+        android:fontWeight="500" />
+
+    <font
+        android:fontFamily="sans-serif"
+        android:fontStyle="normal"
+        android:fontWeight="700" />
+
+</font-family>

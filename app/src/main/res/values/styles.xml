@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Component styles for Rask.
+    Thin modern typography, generous negative space, subtle gold borders.
+-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- ===== Typography tokens ===== -->
+    <!-- All weights default to 300 (Light) / 400 (Regular) per design brief. -->
+
+    <style name="TextAppearance.Rask.Headline" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:fontFamily">@font/rask_font_family</item>
+        <item name="android:textColor">@color/rask_cream</item>
+        <item name="android:textFontWeight" tools:targetApi="28">300</item>
+        <item name="android:letterSpacing">-0.02</item>
+    </style>
+
+    <style name="TextAppearance.Rask.Title" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:fontFamily">@font/rask_font_family</item>
+        <item name="android:textColor">@color/rask_cream</item>
+        <item name="android:textFontWeight" tools:targetApi="28">400</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="TextAppearance.Rask.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:fontFamily">@font/rask_font_family</item>
+        <item name="android:textColor">@color/rask_gray_light</item>
+        <item name="android:textFontWeight" tools:targetApi="28">300</item>
+    </style>
+
+    <style name="TextAppearance.Rask.Caption" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:fontFamily">@font/rask_font_family</item>
+        <item name="android:textColor">@color/rask_gray</item>
+        <item name="android:textFontWeight" tools:targetApi="28">400</item>
+        <item name="android:letterSpacing">0.04</item>
+    </style>
+
+    <style name="TextAppearance.Rask.GoldLabel" parent="TextAppearance.Rask.Caption">
+        <item name="android:textColor">@color/rask_gold</item>
+        <item name="android:letterSpacing">0.12</item>
+    </style>
+
+    <style name="TextAppearance.Rask.GoldDisplay" parent="TextAppearance.Material3.DisplaySmall">
+        <item name="android:fontFamily">@font/rask_font_family</item>
+        <item name="android:textColor">@color/rask_gold</item>
+        <item name="android:textFontWeight" tools:targetApi="28">300</item>
+        <item name="android:letterSpacing">-0.03</item>
+    </style>
+
+    <!-- ===== CardView ===== -->
+    <style name="Widget.Rask.CardView" parent="Widget.Material3.CardView.Filled">
+        <item name="cardBackgroundColor">@color/rask_card</item>
+        <item name="cardCornerRadius">18dp</item>
+        <item name="strokeColor">@color/rask_card_border</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="contentPadding">18dp</item>
+        <item name="cardElevation">0dp</item>
+    </style>
+
+    <!-- ===== Filled card with subtle gold border for hero widgets ===== -->
+    <style name="Widget.Rask.CardView.Gold" parent="Widget.Rask.CardView">
+        <item name="strokeColor">@color/rask_gold_dimmed</item>
+        <item name="cardBackgroundColor">@color/rask_charcoal</item>
+    </style>
+
+    <!-- ===== Buttons ===== -->
+    <style name="Widget.Rask.Button" parent="Widget.Material3.Button">
+        <item name="android:fontFamily">@font/rask_font_family</item>
+        <item name="android:textFontWeight" tools:targetApi="28">400</item>
+        <item name="android:letterSpacing">0.08</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/rask_black</item>
+        <item name="backgroundTint">@color/rask_gold</item>
+        <item name="cornerRadius">14dp</item>
+        <item name="android:minHeight">52dp</item>
+        <item name="android:paddingStart">22dp</item>
+        <item name="android:paddingEnd">22dp</item>
+    </style>
+
+    <style name="Widget.Rask.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:fontFamily">@font/rask_font_family</item>
+        <item name="android:textColor">@color/rask_gold</item>
+        <item name="strokeColor">@color/rask_gold_dimmed</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cornerRadius">14dp</item>
+        <item name="android:minHeight">52dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.06</item>
+    </style>
+
+    <style name="Widget.Rask.Button.Text" parent="Widget.Material3.Button.TextButton">
+        <item name="android:fontFamily">@font/rask_font_family</item>
+        <item name="android:textColor">@color/rask_gold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.04</item>
+    </style>
+
+    <!-- ===== FAB ===== -->
+    <style name="Widget.Rask.FAB" parent="Widget.Material3.FloatingActionButton.Primary">
+        <item name="backgroundTint">@color/rask_gold</item>
+        <item name="tint">@color/rask_black</item>
+        <item name="elevation">6dp</item>
+        <item name="borderWidth">0dp</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.Rask.FAB</item>
+    </style>
+
+    <style name="ShapeAppearance.Rask.FAB" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">28dp</item>
+    </style>
+
+    <!-- ===== BottomNavigationView ===== -->
+    <style name="Widget.Rask.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
+        <item name="itemActiveIndicatorStyle">@style/Widget.Rask.BottomNavigationView.ActiveIndicator</item>
+        <item name="itemIconTint">@color/bottom_nav_color</item>
+        <item name="itemTextColor">@color/bottom_nav_color</item>
+        <item name="android:fontFamily">@font/rask_font_family</item>
+        <item name="android:background">@color/rask_charcoal</item>
+        <item name="labelVisibilityMode">labeled</item>
+        <item name="itemRippleColor">@color/rask_gold_ripple</item>
+    </style>
+
+    <style name="Widget.Rask.BottomNavigationView.ActiveIndicator"
+           parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/rask_gold_ripple</item>
+    </style>
+
+    <!-- ===== TextInputLayout ===== -->
+    <style name="Widget.Rask.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/rask_gold</item>
+        <item name="boxBackgroundColor">@color/rask_elevated</item>
+        <item name="boxStrokeErrorColor">@color/rask_error</item>
+        <item name="hintTextColor">@color/rask_gold</item>
+        <item name="boxCornerRadiusBottomEnd">14dp</item>
+        <item name="boxCornerRadiusBottomStart">14dp</item>
+        <item name="boxCornerRadiusTopEnd">14dp</item>
+        <item name="boxCornerRadiusTopStart">14dp</item>
+        <item name="android:textColorHint">@color/rask_gray</item>
+    </style>
+
+    <!-- ===== Snackbar ===== -->
+    <style name="Widget.Rask.Snackbar" parent="Widget.Material3.Snackbar">
+        <item name="backgroundTint">@color/rask_elevated</item>
+        <item name="android:layout_margin">16dp</item>
+    </style>
+    <style name="Widget.Rask.SnackbarText" parent="Widget.Material3.Snackbar.TextView">
+        <item name="android:textColor">@color/rask_cream</item>
+    </style>
+
+    <!-- ===== Activity transitions — soft fade only ===== -->
+    <style name="Animation.Rask.Activity" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/fade_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/fade_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/fade_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/fade_out</item>
+    </style>
+
+    <!-- ===== Chip ===== -->
+    <style name="Widget.Rask.Chip" parent="Widget.Material3.Chip.Filter">
+        <item name="chipBackgroundColor">@color/rask_card</item>
+        <item name="chipStrokeColor">@color/rask_card_border</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="android:textColor">@color/rask_gray_light</item>
+        <item name="checkedIcon">@null</item>
+        <item name="chipBackgroundColorChecked">@color/rask_gold</item>
+    </style>
+
+    <!-- ===== ProgressBar (linear, slim, gold) ===== -->
+    <style name="Widget.Rask.ProgressBar" parent="Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:progressTint">@color/rask_gold</item>
+        <item name="android:progressBackgroundTint">@color/rask_card_border</item>
+        <item name="android:minHeight">3dp</item>
+        <item name="android:maxHeight">3dp</item>
+    </style>
+
+</resources>
