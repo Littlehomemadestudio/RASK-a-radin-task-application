@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#0E0E10">
+  <meta name="description" content="Rask — a luxurious, minimal time and activity tracker. Gold-on-dark. Fully offline.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Rask">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>Rask</title>
+</head>
+<body>
+  <div id="app">
+
+    <!-- Splash screen -->
+    <div id="splash" class="splash">
+      <div class="splash-logo">R</div>
+      <div class="splash-title" data-i18n="appName">رَسک</div>
+      <div class="splash-tagline" data-i18n="tagline">زمان، ظریف.</div>
+    </div>
+
+    <!-- Onboarding -->
+    <div id="onboarding" class="onboarding hidden">
+      <div class="onboarding-illustration">
+        <div class="illustration-circle"></div>
+      </div>
+      <div class="onboarding-title" id="obTitle"></div>
+      <div class="onboarding-body" id="obBody"></div>
+      <div class="onboarding-dots" id="obDots"></div>
+      <div class="onboarding-buttons">
+        <button class="btn btn-outline" id="obSkip" style="flex:1"></button>
+        <button class="btn btn-gold" id="obNext" style="flex:1"></button>
+      </div>
+    </div>
+
+    <!-- Lock screen -->
+    <div id="lock" class="lock-screen hidden">
+      <div class="lock-logo">R</div>
+      <div style="font-size:24px;color:var(--gold);font-weight:700;margin-bottom:8px" data-i18n="appName">رَسک</div>
+      <div style="font-size:12px;color:var(--text-dim);margin-bottom:var(--space-xl)" id="lockSubtitle" data-i18n="unlockRask"></div>
+      <input type="password" inputmode="numeric" class="field" id="lockPin" style="text-align:center;max-width:200px;margin-bottom:var(--space-md)" data-i18n-placeholder="enterPin">
+      <button class="btn btn-gold btn-block" id="unlockBtn" style="max-width:200px;margin-bottom:var(--space-sm)" data-i18n="unlock"></button>
+      <button class="btn btn-outline btn-block hidden" id="biometricUnlockBtn" style="max-width:200px" data-i18n="useBiometric"></button>
+    </div>
+
+    <!-- Main view -->
+    <div id="main" class="main-view hidden">
+
+      <!-- Home -->
+      <div id="screen-home" class="screen">
+        <h1 class="greeting" id="greeting"></h1>
+        <p class="date-label" id="dateLabel"></p>
+
+        <div id="installBanner" class="install-banner hidden">
+          <div class="install-banner-text" data-i18n="installPrompt"></div>
+          <button class="btn btn-gold btn-sm" id="installBtn" data-i18n="installApp"></button>
+          <button class="btn btn-ghost btn-sm" id="dismissInstall" data-i18n="dismiss"></button>
+        </div>
+
+        <div class="card today-card">
+          <canvas class="ring-canvas" id="todayRing" width="140" height="140"></canvas>
+          <div class="card-info">
+            <div class="card-subtitle" data-i18n="today"></div>
+            <div class="today-total" id="todayTotal">۰</div>
+            <div class="today-goal" id="todayGoal"></div>
+            <div class="today-streak" id="todayStreak"></div>
+          </div>
+        </div>
+
+        <div class="card timer-card hidden" id="timerCard">
+          <div class="timer-title" id="timerTitle"></div>
+          <div class="timer-time" id="timerTime">00:00:00</div>
+          <div class="timer-buttons">
+            <button class="btn btn-outline btn-sm" id="timerPause" data-i18n="pause"></button>
+            <button class="btn btn-gold btn-sm" id="timerStop" data-i18n="stopSave"></button>
+          </div>
+        </div>
+
+        <div class="section-header" data-i18n="quickTemplates"></div>
+        <div class="templates-row" id="templatesRow"></div>
+
+        <div class="section-header" data-i18n="recentActivities"></div>
+        <div id="recentList"></div>
+      </div>
+
+      <!-- Goals -->
+      <div id="screen-goals" class="screen hidden">
+        <h1 class="greeting" data-i18n="goalsStreaks" style="font-size:24px;margin-bottom:var(--space-md)"></h1>
+        <div id="goalsList"></div>
+        <div class="section-header" data-i18n="badges"></div>
+        <div id="badgesList"></div>
+        <button class="btn btn-gold btn-block" id="newGoalBtn" data-i18n="newGoal" style="margin-top:var(--space-lg)"></button>
+      </div>
+
+      <!-- Stats -->
+      <div id="screen-stats" class="screen hidden">
+        <h1 class="greeting" data-i18n="statistics" style="font-size:24px;margin-bottom:var(--space-md)"></h1>
+        <div class="templates-row" id="statsPresets" style="margin-bottom:var(--space-md)"></div>
+        <div id="statsContent"></div>
+        <div class="flex-row gap-sm" style="margin-top:var(--space-lg)">
+          <button class="btn btn-outline btn-sm" style="flex:1" id="exportPdfBtn" data-i18n="exportPdf"></button>
+          <button class="btn btn-outline btn-sm" style="flex:1" id="exportCsvBtn" data-i18n="exportCsv"></button>
+        </div>
+      </div>
+
+      <!-- Settings -->
+      <div id="screen-settings" class="screen hidden">
+        <h1 class="greeting" data-i18n="settingsTitle" style="font-size:24px;margin-bottom:var(--space-md)"></h1>
+
+        <div class="section-header" data-i18n="appearance"></div>
+        <div class="card">
+          <div class="settings-row">
+            <span class="settings-label" data-i18n="language"></span>
+            <div class="flex-row">
+              <button class="chip" id="langFa">فارسی</button>
+              <button class="chip" id="langEn">English</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-header" data-i18n="appLock"></div>
+        <div class="card">
+          <div class="settings-row">
+            <span class="settings-label" data-i18n="currentMode"></span>
+            <span class="settings-value" id="lockModeLbl"></span>
+          </div>
+          <div class="input-group" style="margin-top:var(--space-md)">
+            <input type="password" inputmode="numeric" class="field" id="newPinInput" data-i18n-placeholder="newPin">
+          </div>
+          <div class="flex-row gap-sm">
+            <button class="btn btn-gold btn-sm" style="flex:1" id="setPinBtn" data-i18n="setPin"></button>
+            <button class="btn btn-outline btn-sm" style="flex:1" id="enableBioBtn" data-i18n="enableBiometric"></button>
+          </div>
+          <button class="btn btn-ghost btn-sm btn-block" id="clearLockBtn" data-i18n="clearLock" style="margin-top:var(--space-sm)"></button>
+        </div>
+
+        <div class="section-header" data-i18n="backupRestore"></div>
+        <div class="card">
+          <div class="input-group">
+            <input type="password" class="field" id="backupPwd" data-i18n-placeholder="backupPassword">
+          </div>
+          <div class="flex-row gap-sm">
+            <button class="btn btn-gold btn-sm" style="flex:1" id="exportBackupBtn" data-i18n="exportBackup"></button>
+            <button class="btn btn-outline btn-sm" style="flex:1" id="restoreBackupBtn" data-i18n="restoreBackup"></button>
+          </div>
+        </div>
+
+        <div class="section-header" data-i18n="about"></div>
+        <div class="card">
+          <div style="font-size:16px;color:var(--gold);font-weight:700">Rask v1.0.0</div>
+          <div style="font-size:12px;color:var(--text-dim);margin-top:4px" data-i18n="aboutTagline"></div>
+          <div style="font-size:10px;color:var(--text-faint);margin-top:8px">© 2026 Littlehomemade Studio</div>
+        </div>
+      </div>
+
+      <!-- Bottom nav -->
+      <nav class="bottom-nav">
+        <button class="nav-btn active" data-tab="home">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M3 12l9-9 9 9"/><path d="M5 10v10h14V10"/></svg>
+          <span data-i18n="home"></span>
+        </button>
+        <button class="nav-btn" data-tab="goals">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg>
+          <span data-i18n="goals"></span>
+        </button>
+        <button class="nav-btn" data-tab="stats">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg>
+          <span data-i18n="stats"></span>
+        </button>
+        <button class="nav-btn" data-tab="settings">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          <span data-i18n="settings"></span>
+        </button>
+      </nav>
+
+      <!-- FAB -->
+      <button class="fab" id="fab">+</button>
+    </div>
+
+    <!-- Quick log modal -->
+    <div id="quickLogModal" class="modal-backdrop hidden">
+      <div class="modal">
+        <h2 class="modal-title" data-i18n="quickLog"></h2>
+
+        <div class="input-group">
+          <input type="text" class="field" id="qlTitle" data-i18n-placeholder="activityTitle">
+        </div>
+
+        <button class="btn btn-outline btn-block" id="qlVoice" style="margin-bottom:var(--space-md)">
+          🎤 <span data-i18n="voiceInput"></span>
+        </button>
+
+        <div class="section-header" data-i18n="category"></div>
+        <div class="templates-row" id="qlCategories"></div>
+
+        <div class="section-header" data-i18n="duration"></div>
+        <div class="flex-row gap-sm" style="margin-bottom:var(--space-md)">
+          <input type="number" min="0" max="23" class="field" id="qlHours" placeholder="HH" style="flex:1;text-align:center">
+          <span style="font-size:24px;color:var(--gold)">:</span>
+          <input type="number" min="0" max="59" class="field" id="qlMinutes" placeholder="MM" style="flex:1;text-align:center">
+        </div>
+
+        <button class="btn btn-ghost btn-block" id="qlStopwatch" style="margin-bottom:var(--space-md)" data-i18n="startStopwatch"></button>
+
+        <div class="flex-row gap-sm">
+          <button class="btn btn-outline" style="flex:1" id="qlCancel" data-i18n="cancel"></button>
+          <button class="btn btn-gold" style="flex:1" id="qlSave" data-i18n="save"></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- New template modal -->
+    <div id="templateModal" class="modal-backdrop hidden">
+      <div class="modal">
+        <h2 class="modal-title" data-i18n="addTemplate"></h2>
+        <div class="input-group">
+          <input type="text" class="field" id="tplTitle" data-i18n-placeholder="templateTitle">
+        </div>
+        <div class="section-header" data-i18n="category"></div>
+        <div class="templates-row" id="tplCategories"></div>
+        <div class="input-group" style="margin-top:var(--space-md)">
+          <label class="input-label" data-i18n="duration"></label>
+          <input type="number" min="1" max="600" class="field" id="tplDuration" placeholder="30">
+        </div>
+        <div class="flex-row gap-sm" style="margin-top:var(--space-md)">
+          <button class="btn btn-outline" style="flex:1" id="tplCancel" data-i18n="cancel"></button>
+          <button class="btn btn-gold" style="flex:1" id="tplCreate" data-i18n="create"></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- New goal modal -->
+    <div id="goalModal" class="modal-backdrop hidden">
+      <div class="modal">
+        <h2 class="modal-title" data-i18n="newGoal"></h2>
+        <div class="section-header" data-i18n="duration"></div>
+        <div class="templates-row" id="goalPeriods">
+          <button class="chip selected" data-period="daily" data-i18n="daily"></button>
+          <button class="chip" data-period="weekly" data-i18n="weekly"></button>
+          <button class="chip" data-period="monthly" data-i18n="monthly"></button>
+        </div>
+        <div class="section-header" data-i18n="category"></div>
+        <div class="templates-row" id="goalCategories"></div>
+        <div class="input-group" style="margin-top:var(--space-md)">
+          <label class="input-label">Target (minutes)</label>
+          <input type="number" min="1" max="1440" class="field" id="goalTarget" value="60">
+        </div>
+        <div class="flex-row gap-sm" style="margin-top:var(--space-md)">
+          <button class="btn btn-outline" style="flex:1" id="goalCancel" data-i18n="cancel"></button>
+          <button class="btn btn-gold" style="flex:1" id="goalCreate" data-i18n="save"></button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scripts: load order matters -->
+  <script src="js/i18n.js"></script>
+  <script src="js/date-utils.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/timer.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/backup.js"></script>
+  <script src="js/biometric.js"></script>
+  <script src="js/export-pdf.js"></script>
+  <script src="js/export-csv.js"></script>
+  <script src="js/voice.js"></script>
+  <script src="js/app.js"></script>
+
+  <!-- Register service worker -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("sw.js").then((reg) => {
+          console.log("[Rask] SW registered", reg.scope);
+        }).catch((err) => console.warn("[Rask] SW failed", err));
+      });
+    }
+  </script>
+</body>
+</html>
