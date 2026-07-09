@@ -1,0 +1,480 @@
+If you want to avoid networking entirely, I'd actually lean into that. A **100% offline, local-first app** can still be extremely powerful. You lose syncing, but you gain simplicity, speed, and privacy.
+
+Here are "heavy" features that don't require any internet, servers, or communication between devices.
+
+## 1. Activity Tree (Highly Recommended)
+
+Instead of flat categories:
+
+```
+Study
+├── Math
+│   ├── Algebra
+│   └── Geometry
+├── Physics
+├── Chemistry
+└── English
+```
+
+Every node tracks:
+
+* Total time
+* Sessions
+* Streaks
+* Goals
+* Notes
+
+You can collapse and expand the tree.
+
+---
+
+## 2. Timeline Explorer
+
+A scrollable timeline of your entire life.
+
+```
+Today
+
+08:15 Wake up
+
+09:00 Study Math
+
+11:20 Break
+
+11:45 Coding
+
+13:00 Lunch
+
+14:00 Gym
+
+16:00 Reading
+```
+
+Tap anything to edit it.
+
+---
+
+## 3. Session Replay
+
+Replay your day.
+
+Move a slider.
+
+```
+08:00 █
+09:00 ███
+10:00 ██████
+11:00 ██
+12:00 ████
+```
+
+As you drag, activities animate.
+
+---
+
+## 4. Statistics Lab
+
+Instead of basic charts, include dozens of analytics.
+
+Examples:
+
+* Hour-of-day productivity
+* Day-of-week averages
+* Monthly comparisons
+* Rolling 7-day average
+* Longest sessions
+* Average session duration
+* Category trends
+* Streak history
+* Activity frequency
+* Yearly summaries
+
+Almost an analytics dashboard.
+
+---
+
+## 5. Achievement System
+
+Hundreds of achievements.
+
+```
+100 Hours Coding
+
+Complete
+
+────────────
+
+1000 Hours Reading
+
+32%
+
+────────────
+
+7 Day Streak
+
+Complete
+```
+
+---
+
+## 6. Habit + Time Hybrid
+
+Track both.
+
+```
+Exercise
+
+Goal
+
+45 min/day
+
+Today's
+
+52 min
+
+Habit ✓
+
+Streak
+
+43 days
+```
+
+---
+
+## 7. Routine Builder
+
+Morning Routine
+
+```
+Wake
+
+↓
+
+Water
+
+↓
+
+Stretch
+
+↓
+
+Read
+
+↓
+
+Breakfast
+```
+
+Timer automatically moves to the next step.
+
+---
+
+## 8. Custom Fields
+
+Every activity can have custom data.
+
+Gym
+
+```
+Duration
+
+Weight
+
+Calories
+
+Mood
+```
+
+Reading
+
+```
+Duration
+
+Pages
+
+Book
+
+Rating
+```
+
+Coding
+
+```
+Duration
+
+Project
+
+Language
+
+Lines Written
+```
+
+Users define their own templates.
+
+---
+
+## 9. Lifetime Dashboard
+
+```
+Lifetime
+
+Studied
+
+3,621 h
+
+Programmed
+
+1,842 h
+
+Read
+
+1,201 h
+
+Walked
+
+693 h
+
+Total Sessions
+
+7,214
+```
+
+Very satisfying to watch grow.
+
+---
+
+## 10. Search Engine
+
+Search like Google.
+
+```
+study >2h
+
+gym last month
+
+coding july
+
+english monday
+
+reading before 8pm
+```
+
+Returns matching sessions instantly.
+
+---
+
+## 11. Smart Goals
+
+```
+Need
+
+150h
+
+Done
+
+97h
+
+Remaining
+
+53h
+
+Days Left
+
+31
+
+Today's Target
+
+1h 43m
+```
+
+Updates automatically.
+
+---
+
+## 12. Interactive Calendar
+
+Every day is colored.
+
+```
+██
+████
+█
+██████
+███████
+```
+
+Tap any day.
+
+Shows:
+
+* Sessions
+* Time
+* Notes
+* Mood
+
+---
+
+## 13. Notes & Attachments
+
+Every session can have:
+
+* Notes
+* Images
+* PDFs
+* Audio recordings
+
+Everything stays local.
+
+---
+
+## 14. Mood Tracking
+
+Every session stores mood.
+
+😊 Excellent
+
+🙂 Good
+
+😐 Okay
+
+😞 Bad
+
+Charts show which activities improve your mood over time.
+
+---
+
+## 15. Focus Mode
+
+A dedicated timer.
+
+Includes:
+
+* Stopwatch
+* Countdown
+* Pomodoro
+* Ambient sounds (stored locally)
+* Break timer
+* Session history
+
+---
+
+## 16. Year in Review
+
+Automatically generates:
+
+```
+2026
+
+Most Productive Month
+
+March
+
+Most Active Day
+
+Tuesday
+
+Longest Session
+
+6h 41m
+
+Best Streak
+
+93 Days
+
+Favorite Activity
+
+Programming
+
+Total Time
+
+1,432 Hours
+```
+
+---
+
+## 17. Milestones
+
+```
+Programming
+
+██████████ 987 / 1000 h
+```
+
+When reaching 1000 hours:
+
+Gold animation
+
+Certificate
+
+Historical date
+
+---
+
+## 18. Beautiful Dashboard
+
+A customizable home screen.
+
+Widgets like:
+
+* Active timer
+* Today's hours
+* Weekly goal
+* Monthly chart
+* Streak
+* Recent activities
+* Quick add
+* Favorite projects
+
+Users arrange everything with drag-and-drop.
+
+---
+
+## 19. Full Data Portability
+
+Since there's no networking:
+
+* Export everything to JSON
+* Import from JSON
+* Backup ZIP
+* CSV export
+* PDF reports
+
+One file restores the entire app.
+
+---
+
+## 20. Command Palette (My Favorite)
+
+Like VS Code's `Ctrl+Shift+P`.
+
+Press a button and type:
+
+```
+Start Gym
+
+Add Reading
+
+Open Statistics
+
+Export Data
+
+Show Last Week
+
+Start Pomodoro
+
+Search Coding
+```
+
+Everything is accessible from one place.
+
+---
+
+### If I were building Rask as a serious offline app, I'd focus on these five flagship features:
+
+1. **Hierarchical activity/project system** (unlimited nested categories).
+2. **Powerful analytics dashboard** with rich visualizations and trends.
+3. **Interactive timeline and session replay** for exploring history.
+4. **Flexible templates and custom fields** so different activities can track different metrics.
+5. **A fast command palette** for navigation, logging, and search.
+
+These features make the app feel like a professional productivity tool without requiring a single network request or a backend server.
