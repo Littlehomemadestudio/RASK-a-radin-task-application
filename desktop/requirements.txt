@@ -1,0 +1,5 @@
+cryptography>=42.0
+reportlab>=4.0
+# Optional — enables voice input (Web Speech API equivalent):
+# speech_recognition>=3.10
+# pyaudio>=0.2.14   # required by speech_recognition for microphone access
