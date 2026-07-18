@@ -1,26 +1,41 @@
 #!/usr/bin/env python3
-"""main.py — Rask desktop entry point.
+"""main.py — Entry point for the Rask desktop app.
 
-Run with:  python main.py
-A 1:1 desktop port of the Rask web PWA — gold-on-dark, offline-first,
-all 7 features (smart logging, goals/streaks, time aggregation, stats,
-widgets/notifications, backup/lock, splash+onboarding).
+Usage:
+    python main.py
+
+Optional dependencies (auto-detected at runtime):
+    pip install cryptography    # for AES-256-GCM encrypted backups + PIN hashing
+    pip install reportlab       # for PDF export
+    pip install SpeechRecognition pyaudio  # for voice input
 """
+from __future__ import annotations
 import sys
-import os
-
-# Allow running this file directly: add parent of `rask/` package to sys.path
-HERE = os.path.dirname(os.path.abspath(__file__))
-if HERE not in sys.path:
-    sys.path.insert(0, HERE)
-
-from rask.app import RaskApp
+import traceback
 
 
-def main():
-    app = RaskApp()
-    app.run()
+def main() -> int:
+    """Launch the Rask desktop app."""
+    try:
+        # Ensure we're on Python 3.9+
+        if sys.version_info < (3, 9):
+            print("ERROR: Rask requires Python 3.9 or later.", file=sys.stderr)
+            print(f"You're running Python {sys.version}.", file=sys.stderr)
+            print("Please upgrade from https://python.org", file=sys.stderr)
+            return 1
+        # Import and run
+        from rask.app import RaskApp
+        app = RaskApp()
+        app.run()
+        return 0
+    except KeyboardInterrupt:
+        print("\nInterrupted.")
+        return 130
+    except Exception as e:
+        print(f"ERROR: {e}", file=sys.stderr)
+        traceback.print_exc()
+        return 1
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

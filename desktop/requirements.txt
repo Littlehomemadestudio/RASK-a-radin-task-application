@@ -1,5 +1,25 @@
+# Rask desktop dependencies.
+# All three are optional — the app runs with stdlib only, but these unlock:
+#   - cryptography : AES-256-GCM encrypted backups + PBKDF2-SHA256 PIN hashing
+#   - reportlab    : PDF export of statistics and activity reports
+#
+# Without these, the app still runs but:
+#   - PINs use a pure-Python hashlib fallback (slower, same security)
+#   - Backups are unavailable (button shows a warning)
+#   - PDF export falls back to plain text
+#
+# Voice input (optional, uncomment to enable):
+#   - speech_recognition + pyaudio : microphone input with Google speech-to-text
+#
+# Install everything (recommended):
+#   pip install -r requirements.txt
+#
+# Install minimal (just what's needed for full features):
+#   pip install cryptography reportlab
+
 cryptography>=42.0
 reportlab>=4.0
+
 # Optional — enables voice input (Web Speech API equivalent):
 # speech_recognition>=3.10
 # pyaudio>=0.2.14   # required by speech_recognition for microphone access
